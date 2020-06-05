@@ -27,25 +27,28 @@ include('connect.php');
 					?>
 
 				
- 	
-            <div class="form-group">
-                <label>Name</label>
-                <input type="text" name="name" class="form-control" placeholder="Enter Username" value="<?php echo $row['name']; ?>">
-            </div>
-            <div class="form-group">
-                <label>Code</label>
-                <input type="text" name="code" class="form-control" placeholder="Enter Code" value="<?php echo $row['code']; ?>">
-            </div>
-            <div class="form-group">
-                <label>Class</label>
-                <input type="text" name="class" class="form-control" placeholder="Enter Class" value="<?php echo $row['class']; ?>">
-            </div>
-            <div class="form-group">
-                <label>Phone</label>
-                <input type="text" name="phone" class="form-control" placeholder="Enter Phone" value="<?php echo $row['phone']; ?>">
-            </div>
-            <button type="button" class="btn btn-primary">Save</button>
-            <a href="student.php" class="btn btn-danger">Cancel</a>
+ 	          <form action="code.php" method="post">
+              <input type="hidden" name="edit_id" class="form-control" value="<?php echo $row['id']; ?>">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="edit_name" class="form-control" placeholder="Enter Username" value="<?php echo $row['name']; ?>">
+                    </div>
+                    <div class="form-group">
+                        <label>Code</label>
+                        <input type="text" name="edit_code" class="form-control" placeholder="Enter Code" value="<?php echo $row['code']; ?>">
+                    </div>
+                    <div class="form-group">
+                        <label>Class</label>
+                        <input type="text" name="edit_class" class="form-control" placeholder="Enter Class" value="<?php echo $row['class']; ?>">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" name="edit_phone" class="form-control" placeholder="Enter Phone" value="<?php echo $row['phone']; ?>">
+                    </div>
+                    <!-- <button type="button" class="btn btn-primary" name="update-btn">Save</button> -->
+                    <input type="submit" name="update-btn" class="btn btn-primary" value="Save">
+                    <a href="student.php" class="btn btn-danger">Cancel</a>
+            </form>
         	<?php
 				}
 			}

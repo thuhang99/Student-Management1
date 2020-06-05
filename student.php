@@ -115,8 +115,8 @@ $query_run=mysqli_query($connect,$query);
                         </td>
                         <td>
                             <form action="code.php" method="post">
-                              <input type="hidden" name="delete_id" value="">
-                              <button type="submit" name="delete_btn" class="btn btn-danger"><i class="fa fa-edit delete"></i></button>
+                              <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
+                              <button onclick="return confirm('Bạn có muốn xóa sinh viên')" href="code.php?id=<?php echo $row['name'];?>" type="submit" name="delete_btn" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                             </form>
                         </td>
                       </tr>
