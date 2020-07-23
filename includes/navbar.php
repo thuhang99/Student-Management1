@@ -2,11 +2,11 @@
    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
   <div class="sidebar-brand-icon rotate-n-15">
     <i class="fas fa-bug"></i>
   </div>
-  <div class="sidebar-brand-text mx-3">ThuHang <sup>99</sup></div>
+  <div class="sidebar-brand-text mx-3">FITA<sup>Vnua</sup></div>
 </a>
 
 <!-- Divider -->
@@ -15,29 +15,27 @@
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active">
   <a class="nav-link" href="index.php">
-    <i class="fas fa-user"></i>
-    <span>Student</span></a>
+    <i class="fas fa-home"></i>
+    <span>Trang chủ</span></a>
 </li>
 
 <!-- Divider -->
-<hr class="sidebar-divider">
-
+<!-- <hr class="sidebar-divider"> -->
 <!-- Heading -->
-<div class="sidebar-heading">
+<!-- <div class="sidebar-heading">
   Interface
-</div>
+</div> -->
 
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
     <i class="fas fa-fw fa-cog"></i>
-    <span>Components</span>
+    <span>Chuyên nghành</span>
   </a>
   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
-      <h6 class="collapse-header">Custom Components:</h6>
-      <a class="collapse-item" href="buttons.html">Buttons</a>
-      <a class="collapse-item" href="cards.html">Cards</a>
+      <a class="collapse-item" href="buttons.html">Danh sách chuyên ngành</a>
+      <a class="collapse-item" href="cards.html">Thêm mới chuyên ngành</a>
     </div>
   </div>
 </li>
@@ -45,11 +43,11 @@
 
 
 
-<li class="nav-item">
+<!-- <li class="nav-item">
   <a class="nav-link" href="register.php">
     <i class="fas fa-fw fa-chart-area"></i>
     <span>Admin Profile</span></a>
-</li>
+</li> -->
 
 
 
@@ -57,15 +55,12 @@
 <li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
     <i class="fas fa-fw fa-wrench"></i>
-    <span>Utilities</span>
+    <span>Lớp</span>
   </a>
   <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
-      <h6 class="collapse-header">Custom Utilities:</h6>
-      <a class="collapse-item" href="utilities-color.html">Colors</a>
-      <a class="collapse-item" href="utilities-border.html">Borders</a>
-      <a class="collapse-item" href="utilities-animation.html">Animations</a>
-      <a class="collapse-item" href="utilities-other.html">Other</a>
+      <a class="collapse-item" href="class.php">Danh sách lớp</a>
+      <a class="collapse-item" href="add_class.php">Thêm lớp</a>
     </div>
   </div>
 </li>
@@ -75,42 +70,48 @@
 
 <!-- Heading -->
 <div class="sidebar-heading">
-  Addons
+  Sinh viên
 </div>
 
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
     <i class="fas fa-fw fa-folder"></i>
-    <span>Pages</span>
+    <span>Sinh viên</span>
   </a>
   <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
-      <h6 class="collapse-header">Login Screens:</h6>
-      <a class="collapse-item" href="login.html">Login</a>
-      <a class="collapse-item" href="register.html">Register</a>
-      <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-      <div class="collapse-divider"></div>
-      <h6 class="collapse-header">Other Pages:</h6>
-      <a class="collapse-item" href="404.html">404 Page</a>
-      <a class="collapse-item" href="blank.html">Blank Page</a>
-    </div>
+      <a class="collapse-item" href="student.php">Danh sách sinh viên</a>
+      <a class="collapse-item" href="add_student.php">Thêm mới sinh viên</a>
+      <a class="collapse-item" href="forgot-password.html">Danh sách cán bộ lớp</a>
+      
   </div>
 </li>
 
+<li class="nav-item">
+  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+    <i class="fas fa-fw fa-folder"></i>
+    <span>Học tập</span>
+  </a>
+  <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+    <div class="bg-white py-2 collapse-inner rounded">
+      <a class="collapse-item" href="student.php">Bảng điểm</a>
+      <a class="collapse-item" href="register.html">Học bổng</a>
+  </div>
+</li>
 <!-- Nav Item - Charts -->
 <li class="nav-item">
   <a class="nav-link" href="charts.html">
     <i class="fas fa-fw fa-chart-area"></i>
-    <span>Charts</span></a>
+    <span>Liên hệ</span></a>
 </li>
 
 <!-- Nav Item - Tables -->
-<li class="nav-item">
+<!-- <li class="nav-item">
   <a class="nav-link" href="tables.html">
     <i class="fas fa-fw fa-table"></i>
     <span>Tables</span></a>
-</li>
+</li> -->
 
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">
@@ -305,9 +306,9 @@
                   Activity Log
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="logout.php" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
+                  Đăng xuất
                 </a>
               </div>
             </li>
@@ -329,18 +330,18 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Đăng xuất</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-body">Bạn thực sự muốn thoát khỏi chương trình?</div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
 
           <form action="logout.php" method="POST"> 
           
-            <button type="submit" name="logout_btn" class="btn btn-primary">Logout</button>
+            <button type="submit" name="logout_btn" class="btn btn-primary">Đăng xuất</button>
 
           </form>
 

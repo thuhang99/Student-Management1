@@ -26,8 +26,8 @@ include('includes/navbar.php');
               <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Student</div>
               <div class="h5 mb-0 font-weight-bold text-gray-800">
                   <?php 
-                      require 'connect.php';
-                      $query="SELECT id FROM sinhvien ORDER BY id";
+                      require 'includes/connect.php';
+                      $query="SELECT id FROM student ORDER BY id";
                       $query_run=mysqli_query($connect,$query);
                       $row=mysqli_num_rows($query_run);
                       echo '<h3>'.$row.'</h3>';
