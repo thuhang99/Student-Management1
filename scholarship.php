@@ -12,10 +12,7 @@ include('includes/connect.php');
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h7 class="m-0 font-weight-bold text-primary">Thông tin các lớp
-            <a style="float:right" href="add_class.php">
-              Thêm mới lớp
-            </a>
+    <h7 class="m-0 font-weight-bold text-primary">Học bổng
     </h7>
   </div>
 
@@ -36,7 +33,7 @@ include('includes/connect.php');
  ?>
     
 <?php 
-$query="SELECT * FROM class";
+$query="SELECT * FROM point";
 $query_run=mysqli_query($connect,$query);
 
 
@@ -45,9 +42,12 @@ $query_run=mysqli_query($connect,$query);
         <thead>
           <tr>
             <!-- <th> ID </th> -->
-            <th>Tên Lớp</th>
-            <th>Chuyên ngành</th>
-            <th>Giáo viên chủ nhiệm</th>
+            <th>Họ Tên</th>
+            <th>Điểm 1</>
+            <th>Điểm 2</th>
+            <th>Điểm 3</th>
+            <th>Điểm TB</th>
+            <th>Trạng thái</th>
             <th>Sửa</th>
             <th>Xóa</th>
           </tr>
@@ -60,38 +60,30 @@ $query_run=mysqli_query($connect,$query);
                 {
                   
                   ?>
-
+                        
                       <tr>
-                        <td><?php echo $row['tenlop']; ?></td>
+                        <td><?php echo $row['id_sv']; ?></td>
+                        <td><?php echo $row['diem1']; ?></td>
+                        <td><?php echo $row['diem2']; ?></td>
+                        <td><?php echo $row['diem3']; ?></td>
+                        <td><?php echo $row['tbc']; ?></td>
                         <td>
-                          <?php
-                         //echo $row['id_cn'];
-                         if($row['id_cn']==1)
-                         {
-                           echo "Công nghệ phần mềm";
-                         }
-                         if($row['id_cn']==2)
-                         {
-                           echo "Công nghệ thông tin";
-                         }
-                         if($row['id_cn']==3)
-                         {
-                           echo "Hệ thống thông tin";
-                         }
-                        if($row['id_cn']==4)
-                         {
-                           echo "An toàn thông tin";
-                         }
-                         if($row['id_cn']==5)
-                         {
-                           echo "Mạng máy tính và truyền thông số";
-                         }
-                         else{
-                           echo ' ';
-                         }
-                         ?>
-                         </td>
-                        <td><?php echo $row['gvcn']; ?></td>
+                            <?php
+                                if($row['tbc']>=8)  
+                                {
+                                    //echo "Học bổng loại giỏi";
+                                    echo "Học bổng loại giỏi";
+                                }
+                                if($row['tbc']>=7 && $row['tbc']<8 )  
+                                {
+                                    echo "Học bổng loại khá";
+                                }
+                                else
+                                {
+                                    echo ' ';
+                                }
+                            ?>
+                        </td>
                         <td>
                             <form action="edit_class.php" method="post">
                                 <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>">

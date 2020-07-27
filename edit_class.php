@@ -34,8 +34,15 @@ include('includes/connect.php');
                         <input type="text" name="edit_tenlop" class="form-control" placeholder="Nhập vào tên lớp" value="<?php echo $row['tenlop']; ?>">
                     </div>
                     <div class="form-group">
-                        <label>Chuyên ngành</label>
-                        <input type="text" name="edit_chuyennganh" class="form-control" placeholder="Nhập vào tên chuyên ngành" value="<?php echo $row['ten_cn']; ?>">
+                    <label>Chuyên ngành</label>
+                <select name="edit_id_cn" class=" form-control">
+                  <option value="0"></option>
+                  <option value="1">Công nghệ phần mềm</option>
+                  <option value="2">Công nghệ thông tin</option>
+                  <option value="3">Hệ thống thông tin</option>
+                  <option value="4">An toàn thông tin</option>
+                  <option value="5">Mạng máy tính và truyền thông dữ liệu</option>
+                </select>
                     </div>
                     <div class="form-group">
                         <label>Giáo viên chủ nhiệm</label>

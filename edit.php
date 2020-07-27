@@ -9,8 +9,8 @@ include('includes/connect.php');
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Chỉnh sửa thông tin sinh viên 
-    </h6>
+    <h7 class="m-0 font-weight-bold text-primary">Chỉnh sửa thông tin sinh viên 
+    </h7>
   </div>
   <div class="card-body">
   	 <div class="modal-body">
@@ -44,6 +44,19 @@ include('includes/connect.php');
                     <div class="form-group">
                         <label>Điện thoại</label>
                         <input type="tel" name="edit_phone" class="form-control" placeholder="Nhập vào số điện thoại" value="<?php echo $row['phone']; ?>">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="edit_email" class="form-control" placeholder="Nhập vào email" value="<?php echo $row['email']; ?>">
+                    </div>
+                    <div class="form-group">
+                    <label>Chức vụ</label>
+                <select name="edit_id_pos" class=" form-control">
+                  <option value="0"> </option>
+                  <option value="1">Lớp trưởng</option>
+                  <option value="2">Bí thư</option>
+                  <option value="3">Lớp phó</option>
+                </select>
                     </div>
                     <!-- <button type="button" class="btn btn-primary" name="update-btn">Save</button> -->
                     <input type="submit" name="update-btn" class="btn btn-primary" value="Lưu lại">

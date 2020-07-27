@@ -14,48 +14,82 @@ include('includes/connect.php');
           <span aria-hidden="true">&times;</span>
         </button>
       </div> -->
+  <div class="container-fluid">
+  <div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h7 class="m-0 font-weight-bold text-primary">Thêm mới sinh viên
+          
+    </h7>
+  </div>
+  <div class="card-body">
       <form action="code.php" method="POST">
 
         <div class="modal-body">
-
-            <div class="form-group">
+          <div class="row">
+          <div class="form-group col-md-6">
                 <label>Họ Tên</label>
                 <input type="text" name="name" class="form-control" placeholder="Enter Username">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6">
                 <label>Mã SV</label>
-                <input type="number" name="code" class="form-control" placeholder="Enter Code">
+                <input type="text" name="code" class="form-control" placeholder="Enter Code">
             </div>
-            <div class="form-group">
+          </div> 
+          <!-- end row -->
+
+          <div class="row">
+          <div class="form-group col-md-6">
                 <label>Lớp</label>
                 <input type="text" name="class" class="form-control" placeholder="Enter Class">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6">
+                <label>Chức vụ</label>
+                <select name="id_pos" class=" form-control">
+                  <option value="0"> </option>
+                  <option value="1">Lớp trưởng</option>
+                  <option value="2">Bí thư</option>
+                  <option value="3">Lớp phó</option>
+                </select>
+                <!-- <input type="text" name="id_pos" class="form-control" placeholder="Nhập vào chức vụ"> -->
+            </div>
+          </div>
+          
+          <div class="row">
+          <div class="form-group col-md-6">
                 <label>Số điện thoại</label>
                 <input type="tel" name="phone" class="form-control" placeholder="Enter Phone">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" placeholder="Nhập vào email">
+            </div>
+          </div>
+           
+           <div class="row">
+           <div class="form-group col-md-4">
                 <label>Điểm 1</label>
                 <input type="number" name="diem1" class="form-control" placeholder="Nhập vào điểm 1">
             </div>
-            <div class="form-group">
+            <div class="form-grou col-md-4">
                 <label>Điểm 2</label>
                 <input type="number" name="diem2" class="form-control" placeholder="Nhập vào điểm 2">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
                 <label>Điểm 3</label>
                 <input type="number" name="diem3" class="form-control" placeholder="Nhập vào điểm 3">
             </div>
+            
         </div>
+
+           </div>
+            
         <div class="modal-footer">
             <button type="submit" name="registerbtn" class="btn btn-primary">Lưu</button>
             <button type="reset" class="btn btn-secondary" data-dismiss="modal">Nhập lại</button>
         </div>
       </form>
-
-    </div>
-  </div>
-</div>
+      </div>
+      </div>
 
 <?php
 include('includes/scripts.php');

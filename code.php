@@ -1,6 +1,7 @@
 <?php 
 session_start();
 include('includes/connect.php');
+
 //Login
 // if(isset($_POST['login_btn']))
 // {
@@ -33,17 +34,27 @@ if(isset($_POST['registerbtn']))
 	$code=$_POST['code'];
 	$class=$_POST['class'];
 	$phone=$_POST['phone'];
-	// $d1=$_POST['d1'];
-	// $d2=$_POST['d2'];
-	// $d3=$_POST['d3'];
-	//$tbc=($d1+$d2+$d3)/3;
+	$email=$_POST['email'];
+	$id_pos=$_POST['id_pos'];
+	$diem1=$_POST['diem1'];
+	$diem2=$_POST['diem2'];
+	$diem3=$_POST['diem3'];
+	$tbc=($diem1+$diem2+$diem3)/3;
 
-	$query = "INSERT INTO student(name, code, class, phone) VALUES ('$name','$code','$class','$phone')";
-	//$query2 = "INSERT INTO bangdiem(d1,d2,d3, tbc) VALUES ('$d1','$d2','$d3', '$tbc')";
+	$query = "INSERT INTO student(name, code, class, phone, email, id_pos) VALUES ('$name','$code','$class','$phone','$email','$id_pos')";
+	
+	// var_dump($query);
+	// die();
+	
+	
 	$query_run = mysqli_query($connect,$query);
+	$id_sv=mysqli_insert_id($connect);
+	$query2 = "INSERT INTO point (id_sv,diem1,diem2,diem3,tbc) VALUES ('$id_sv','$diem1','$diem2','$diem3', '$tbc')";
+	$query_run2 = mysqli_query($connect,$query2);
+	$query_3="SELECT name, code, diem1, diem1, diem2, tbc FROM student INNER JOIN point on student.id = point.id_sv";
+	$query_run3=mysqli_query($connect,$query3);
 	if($query_run)
 	{
-				//$query_run2 = mysqli_query($connect,$query2);
 				$_SESSION['success']="Success";
 				header('Location:student.php');
 
@@ -56,6 +67,9 @@ if(isset($_POST['registerbtn']))
 }
 
 
+
+
+
 if(isset($_POST['update-btn']))
 {
 	$id=$_POST['edit_id'];
@@ -63,9 +77,11 @@ if(isset($_POST['update-btn']))
 	$code=$_POST['edit_code'];
 	$class=$_POST['edit_class'];
 	$phone=$_POST['edit_phone'];
+	$email=$_POST['edit_email'];
+	$id_pos=$_POST['edit_id_pos'];
 
 	//giong ơ trên
-	$query="UPDATE student SET name='$name',code='$code',class='$class',phone='$phone' WHERE id='$id' ";
+	$query="UPDATE student SET name='$name',code='$code',class='$class',phone='$phone',email='$email',id_pos='$id_pos' WHERE id='$id' ";
 	$query_run=mysqli_query($connect,$query);
 	if($query_run)
 	{
@@ -78,6 +94,9 @@ if(isset($_POST['update-btn']))
 		header('Location: edit.php');
 	}
 }
+
+
+
 
 
 if(isset($_POST['delete_btn']))
@@ -104,11 +123,11 @@ if($query_run)
 	{
 	
 		$class=$_POST['class'];
-		$chuyennganh=$_POST['ten_cn'];
+		$id_cn=$_POST['id_cn'];
 		$gvcn=$_POST['gvcn'];
 		
 	
-		$query1 = "INSERT INTO class(tenlop, ten_cn, gvcn) VALUES ('$class','$chuyennganh','$gvcn')";
+		$query1 = "INSERT INTO class(tenlop, id_cn, gvcn) VALUES ('$class','$id_cn','$gvcn')";
 	
 		$query_run1 = mysqli_query($connect,$query1);
 		if($query_run1)
@@ -129,11 +148,11 @@ if($query_run)
 		
 		$id=$_POST['edit_id'];
 		$tenlop=$_POST['edit_tenlop'];
-		$ten_cn=$_POST['edit_chuyennganh'];
+		$id_cn=$_POST['edit_id_cn'];
 		$gvcn=$_POST['edit_gvcn'];
 	
 		
-		$query="UPDATE class SET tenlop='$tenlop',ten_cn='$ten_cn',gvcn='$gvcn' WHERE id='$id' ";
+		$query="UPDATE class SET tenlop='$tenlop',id_cn='$id_cn',gvcn='$gvcn' WHERE id='$id' ";
 		$query_run=mysqli_query($connect,$query);
 		if($query_run)
 		{
@@ -165,5 +184,31 @@ if($query_run)
 				header('Location:class.php');
 			}
 		}	
+
+
+
+
+//Điểm----------------------------------------------	
+if(isset($_POST['update-point']))
+	{
+		
+		$id=$_POST['edit_id'];
+		$diem1=$_POST['edit_diem1'];
+		$diem2=$_POST['edit_diem2'];
+		$diem3=$_POST['edit_diem3'];
+
+		$query="UPDATE point SET diem1='$diem1',diem2='$diem2',diem3='$diem3' WHERE id='$id' ";
+		$query_run=mysqli_query($connect,$query);
+		if($query_run)
+		{
+			$_SESSION['success']="Success";
+			header('Location:point.php');
+		}
+		else
+		{
+			$_SESSION['status']="Fail";
+			header('Location:point.php');
+		}
+	}
  ?>
 

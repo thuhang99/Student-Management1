@@ -12,11 +12,11 @@ include('includes/connect.php');
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Thông tin sinh viên
+    <h7 class="m-0 font-weight-bold text-primary">Thông tin sinh viên
             <a style="float:right" href="add_student.php">
               Thêm mới sinh viên
             </a>
-    </h6>
+    </h7>
   </div>
 
   <div class="card-body">
@@ -58,30 +58,7 @@ $query_run=mysqli_query($connect,$query);
         <tbody>
           <?php 
 
-                  // $query_page = "SELECT COUNT(id) AS total FROM student";
-                  // $result_page = mysqli_query($connect,$query_page);
-                  // // ktra_query($result_page,$query_page);
-                  // $query_run=mysqli_query($result_page,$query);
-                  // $row = mysqli_fetch_assoc($result_page);
-                  // $total_records = $row['total'];
-                  // // tim limlit va current_page
-                  // $current_page = isset($_GET['page']) ? $_GET['page']:1;
-                  // $limit = 10;
-                  // //tong so trang
-                  // $total_page = ceil($total_records/$limit);
-                  // // gioi han current_page trong khoang 1 den total_page
-                  // if ($current_page > $total_page) {
-                  //   $current_page = $total_page;
-                  // }else if($current_page < 1){
-                  //   $current_page = 1;
-                  // }
-                  // // tim start
-                  // $start = ($current_page -1)*$limit;
-
-                  // $query2 = "SELECT * FROM student ORDER BY id  LIMIT {$start},{$limit}";
-                  // $result2 = mysqli_query($connect,$query2);
-                  // //ktra_query($result,$query);
-                  // $query_run=mysqli_query($result2,$query2);
+                
 
               if(mysqli_num_rows($query_run)>0)
               {
@@ -95,8 +72,29 @@ $query_run=mysqli_query($connect,$query);
                         <td><?php echo $row['code']; ?></td>
                         <td><?php echo $row['class']; ?></td>
                         <td><?php echo $row['phone']; ?></td>
-                        <td>test@gmail.com</td>
-                        <td>Lớp trưởng</td>
+                        <td><?php echo $row['email']; ?></td>
+                        <td>
+                          <?php 
+                            if($row['id_pos']==1)
+                            {
+                              echo 'Lớp trưởng';
+                              
+                            }
+                            if($row['id_pos']==2)
+                            {
+                              echo 'Bí thư';
+                            }
+                            if($row['id_pos']==3)
+                            {
+                              echo 'Lớp phó';
+                            }
+                            else
+                            {
+                              echo ' ';
+                            }
+                            // echo $row['id_pos'];
+                          ?>
+                        </td>
                         <td>
                             <form action="edit.php" method="post">
                                 <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>">
@@ -110,7 +108,6 @@ $query_run=mysqli_query($connect,$query);
                             </form>
                         </td>
                       </tr>
-
                   <?php
                 }
               }

@@ -95,8 +95,8 @@
   </a>
   <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
-      <a class="collapse-item" href="student.php">Bảng điểm</a>
-      <a class="collapse-item" href="register.html">Học bổng</a>
+      <a class="collapse-item" href="point.php">Bảng điểm</a>
+      <a class="collapse-item" href="scholarship.php">Học bổng</a>
   </div>
 </li>
 <!-- Nav Item - Charts -->

@@ -45,7 +45,8 @@ if (isset($_SESSION['id'])) {
                   if (mysqli_num_rows($result)==1) {
                     list($id,$email,$password)= mysqli_fetch_array($result,MYSQLI_NUM);
                     $_SESSION['id']=$id;
-                    $_SESSION['email'] = $email;
+                    $_SESSION['user'] = $email;
+                    $_SESSION['password'] = $password;
                     header('Location: index.php');
                     
                   }else{
