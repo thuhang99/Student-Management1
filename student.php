@@ -77,16 +77,16 @@ $query_run=mysqli_query($connect,$query);
                           <?php 
                             if($row['id_pos']==1)
                             {
-                              echo 'Lớp trưởng';
+                              echo '<a href="#" class="badge badge-danger">Lớp trưởng</a>';
                               
                             }
                             if($row['id_pos']==2)
                             {
-                              echo 'Bí thư';
+                              echo '<p class="badge badge-success">Bí thư</p>';
                             }
                             if($row['id_pos']==3)
                             {
-                              echo 'Lớp phó';
+                              echo '<p class="badge badge-primary">Lớp phó</p>';
                             }
                             else
                             {

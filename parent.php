@@ -35,7 +35,7 @@ include('includes/connect.php');
 <?php 
 // $query="SELECT * FROM point";
 // $query_run=mysqli_query($connect,$query);
-$query_3="SELECT student.name,code, points.id, diem1, diem2, diem3, tbc FROM student INNER JOIN points ON student.id = points.id_sv";
+$query_3="SELECT student.name,code, parents.id, namep, addp, phonep, emailp FROM student INNER JOIN parents ON student.id = parents.id_sv";
 $query_run3=mysqli_query($connect,$query_3);
 
 
@@ -46,11 +46,10 @@ $query_run3=mysqli_query($connect,$query_3);
             <!-- <th> ID </th> -->
             <th>Họ Tên</th>
             <th>Mã SV</th>
-            <th>Điểm 1</>
-            <th>Điểm 2</th>
-            <th>Điểm 3</th>
-            <th>Điểm TB</th>
-            <th>Trạng thái</th>
+            <th>Tên phụ huynh</>
+            <th>Địa chỉ</th>
+            <th>Số điện thoại</th>
+            <th>Email</th>
             <th>Sửa</th>
           </tr>
         </thead>
@@ -66,31 +65,15 @@ $query_run3=mysqli_query($connect,$query_3);
                       <tr>
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['code']; ?></td>
-                        <td><?php echo $row['diem1']; ?></td>
-                        <td><?php echo $row['diem2']; ?></td>
-                        <td><?php echo $row['diem3']; ?></td>
-                        <td><?php echo $row['tbc']; ?></td>
+                        <td><?php echo $row['namep']; ?></td>
+                        <td><?php echo $row['addp']; ?></td>
+                        <td><?php echo $row['phonep']; ?></td>
+                        <td><?php echo $row['emailp']; ?></td>
+                        
                         <td>
-                            <?php
-                                if($row['tbc']>=8)  
-                                {
-                                    //echo "Học bổng loại giỏi";
-                                    echo '<span class="badge badge-success">Học bổng loại giỏi</span>';
-                                }
-                                if($row['tbc']>=7 && $row['tbc']<8 )  
-                                {
-                                    echo '<span class="badge badge-primary">Học bổng loại khá</span>';
-                                }
-                                else
-                                {
-                                    echo ' ';
-                                }
-                            ?>
-                        </td>
-                        <td>
-                            <form action="edit_point.php" method="post">
+                            <form action="edit_parent.php" method="post">
                                 <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>">
-                                <button  type="submit" name="edit_point" class="btn btn-info btn-circle"><i class="fa fa-edit edit"></i></button>
+                                <button  type="submit" name="edit_parent" class="btn btn-info btn-circle"><i class="fa fa-edit edit"></i></button>
                             </form>
                         </td>
                        

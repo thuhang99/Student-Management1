@@ -101,7 +101,7 @@
 </li>
 <!-- Nav Item - Charts -->
 <li class="nav-item">
-  <a class="nav-link" href="charts.html">
+  <a class="nav-link" href="parent.php">
     <i class="fas fa-fw fa-chart-area"></i>
     <span>Liên hệ</span></a>
 </li>

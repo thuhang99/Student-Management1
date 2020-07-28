@@ -2,30 +2,6 @@
 session_start();
 include('includes/connect.php');
 
-//Login
-// if(isset($_POST['login_btn']))
-// {
-// 	$email=$_POST['email'];
-// 	$password=$_POST['password'];
-
-// 	$query="SELECT id,email,password FROM admin WHERE emai='{$email}' AND password='{$password}'";
-	
-// 	$query_run=mysqli_query($connect,$query);
-
-// 	if(mysqli_fetch_array($query_run)==1)
-	
-// 	{
-// 		$_SESSION['email']=$email;
-// 		header('Location:index.php');
-// 	}
-// 	else
-// 	{
-// 		$_SESSION['status']='Sai thông tin đăng nhập';
-// 		header('Location:login.php');
-// 	}
-
-// }
-
 
 if(isset($_POST['registerbtn']))
 {
@@ -40,28 +16,33 @@ if(isset($_POST['registerbtn']))
 	$diem2=$_POST['diem2'];
 	$diem3=$_POST['diem3'];
 	$tbc=($diem1+$diem2+$diem3)/3;
+	$namep=$_POST['namep'];
+	$addp=$_POST['addp'];
+	$phonep=$_POST['phonep'];
+	$emailp=$_POST['emailp'];
 
 	$query = "INSERT INTO student(name, code, class, phone, email, id_pos) VALUES ('$name','$code','$class','$phone','$email','$id_pos')";
-	
-	// var_dump($query);
-	// die();
-	
-	
 	$query_run = mysqli_query($connect,$query);
+
 	$id_sv=mysqli_insert_id($connect);
-	$query2 = "INSERT INTO point (id_sv,diem1,diem2,diem3,tbc) VALUES ('$id_sv','$diem1','$diem2','$diem3', '$tbc')";
+	$query2 = "INSERT INTO points (id_sv,diem1,diem2,diem3,tbc) VALUES ('$id_sv','$diem1','$diem2','$diem3', '$tbc')";
 	$query_run2 = mysqli_query($connect,$query2);
-	$query_3="SELECT name, code, diem1, diem1, diem2, tbc FROM student INNER JOIN point on student.id = point.id_sv";
-	$query_run3=mysqli_query($connect,$query3);
+
+	// $query_3="SELECT name, code, diem1, diem1, diem2, tbc FROM student INNER JOIN points on student.id = points.id_sv";
+	// $query_run3=mysqli_query($connect,$query3);
+
+	$query3 = "INSERT INTO parents (id_sv,namep,addp,phonep,emailp) VALUES ('$id_sv','$namep','$addp','$phonep', '$emailp')";
+	$query_run3 = mysqli_query($connect,$query3);
+
 	if($query_run)
 	{
-				$_SESSION['success']="Success";
+				$_SESSION['success'].="Thêm mới sinh viên thành công";
 				header('Location:student.php');
 
 	}
 	else
 	{
-		$_SESSION['status']="Fail";
+		$_SESSION['status'].="Thêm mới sinh viên không thành công";
 		header('Location:student.php');
 	}
 }
@@ -85,12 +66,12 @@ if(isset($_POST['update-btn']))
 	$query_run=mysqli_query($connect,$query);
 	if($query_run)
 	{
-		$_SESSION['success']="Success";
+		$_SESSION['success'].="Thay đổi thông tin sinh viên thành công";
 		header('Location:student.php');
 	}
 	else
 	{
-		$_SESSION['status']="Fail";
+		$_SESSION['status'].="Thay đổi thông tin sinh viên không thành công";
 		header('Location: edit.php');
 	}
 }
@@ -108,13 +89,13 @@ if(isset($_POST['delete_btn']))
 
 if($query_run)
 	{
-		$_SESSION['success']="Success";
+		$_SESSION['success'].="Xóa sinh viên thành công";
 		header('Location:student.php');
 
 	}
 	else
 	{
-		$_SESSION['status']="Fail";
+		$_SESSION['status'].="Xóa sinh viên thành công";
 		header('Location:student.php');
 	}
 }
@@ -132,17 +113,19 @@ if($query_run)
 		$query_run1 = mysqli_query($connect,$query1);
 		if($query_run1)
 		{
-					// $_SESSION['success']="Success";
+					$_SESSION['success'].="Thêm mới lớp thành công";
 					header('Location:class.php');
 	
 		}
 		else
 		{
-			// $_SESSION['status']="Fail";
+			$_SESSION['status'].="Thêm mới lớp không thành công";
 			header('Location:class.php');
 		}
 	}
 	
+
+
 	if(isset($_POST['update-class']))
 	{
 		
@@ -156,15 +139,18 @@ if($query_run)
 		$query_run=mysqli_query($connect,$query);
 		if($query_run)
 		{
-			$_SESSION['success']="Success";
+			$_SESSION['success'].="Sửa thông tin lớp thành công";
 			header('Location:class.php');
 		}
 		else
 		{
-			$_SESSION['status']="Fail";
+			$_SESSION['status'].="Sửa thông tin lớp không thành công";
 			header('Location:class.php');
 		}
 	}
+
+
+			// Xóa lớp
 			if(isset($_POST['delete_class']))
 		{
 
@@ -174,13 +160,13 @@ if($query_run)
 		
 			if($query_run)
 			{
-				$_SESSION['success']="Success";
+				$_SESSION['success'].="Xóa lớp thành công";
 				header('Location:class.php');
 
 			}
 			else
 			{
-				$_SESSION['status']="Fail";
+				$_SESSION['status'].="Xóa lớp không thành công";
 				header('Location:class.php');
 			}
 		}	
@@ -196,18 +182,45 @@ if(isset($_POST['update-point']))
 		$diem1=$_POST['edit_diem1'];
 		$diem2=$_POST['edit_diem2'];
 		$diem3=$_POST['edit_diem3'];
+		$tbc=($diem1+$diem2+$diem3)/3;
 
-		$query="UPDATE point SET diem1='$diem1',diem2='$diem2',diem3='$diem3' WHERE id='$id' ";
+		$query="UPDATE points SET diem1='$diem1',diem2='$diem2',diem3='$diem3',tbc='$tbc' WHERE id='$id' ";
 		$query_run=mysqli_query($connect,$query);
 		if($query_run)
 		{
-			$_SESSION['success']="Success";
+			$_SESSION['success'].="Sửa điểm thành công";
 			header('Location:point.php');
 		}
 		else
 		{
-			$_SESSION['status']="Fail";
+			$_SESSION['status'].="Sửa điểm không thành công";
 			header('Location:point.php');
+		}
+	}
+
+
+
+	//Phụ huynh-------------------------------------------------------
+	if(isset($_POST['update-parent']))
+	{
+		
+		$id=$_POST['edit_id'];
+		$namep=$_POST['edit_namep'];
+		$addp=$_POST['edit_addp'];
+		$phonep=$_POST['edit_phonep'];
+		$emailp=$_POST['edit_emailp'];
+
+		$query="UPDATE parents SET namep='$namep',addp='$addp',phonep='$phonep',email='$emailp' WHERE id='$id' ";
+		$query_run=mysqli_query($connect,$query);
+		if($query_run)
+		{
+			$_SESSION['success'].="Sửa thông tin phụ huynh thành công";
+			header('Location:parent.php');
+		}
+		else
+		{
+			$_SESSION['status'].="Sửa thông tin phụ huynh không thành công";
+			header('Location:parent.php');
 		}
 	}
  ?>

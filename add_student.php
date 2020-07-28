@@ -17,30 +17,31 @@ include('includes/connect.php');
   <div class="container-fluid">
   <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h7 class="m-0 font-weight-bold text-primary">Thêm mới sinh viên
-          
-    </h7>
+    <h7 class="m-0 font-weight-bold text-primary">Thêm mới sinh viên</h7>
   </div>
   <div class="card-body">
       <form action="code.php" method="POST">
 
         <div class="modal-body">
+          <div>
+          <h7 class="m-0 font-weight-bold text-primary">Thông tin sinh viên</h7>
           <div class="row">
           <div class="form-group col-md-6">
-                <label>Họ Tên</label>
-                <input type="text" name="name" class="form-control" placeholder="Enter Username">
+                <label> Họ Tên</label>
+                <input type="text" name="name" class="form-control" placeholder="Nhập vào tên">
             </div>
             <div class="form-group col-md-6">
                 <label>Mã SV</label>
-                <input type="text" name="code" class="form-control" placeholder="Enter Code">
+                <input type="text" name="code" class="form-control" placeholder="Nhập vào MSV">
             </div>
           </div> 
+
           <!-- end row -->
 
           <div class="row">
           <div class="form-group col-md-6">
                 <label>Lớp</label>
-                <input type="text" name="class" class="form-control" placeholder="Enter Class">
+                <input type="text" name="class" class="form-control" placeholder="Nhập vào lớp">
             </div>
             <div class="form-group col-md-6">
                 <label>Chức vụ</label>
@@ -57,14 +58,43 @@ include('includes/connect.php');
           <div class="row">
           <div class="form-group col-md-6">
                 <label>Số điện thoại</label>
-                <input type="tel" name="phone" class="form-control" placeholder="Enter Phone">
+                <input type="tel" name="phone" class="form-control" placeholder="Nhập vào SĐT">
             </div>
             <div class="form-group col-md-6">
                 <label>Email</label>
                 <input type="email" name="email" class="form-control" placeholder="Nhập vào email">
             </div>
           </div>
-           
+        </div>  
+
+
+          <div>
+          <h7 class="m-0 font-weight-bold text-primary">Thông tin phụ huynh</h7>
+          <div class="row">
+          <div class="form-group col-md-6">
+                <label>Họ Tên</label>
+                <input type="text" name="namep" class="form-control" placeholder="Nhập vào tên">
+            </div>
+            <div class="form-group col-md-6">
+                <label>Địa chỉ</label>
+                <input type="text" name="addp" class="form-control" placeholder="Nhập vào địa chỉ">
+            </div>
+          </div> 
+          </div>
+          <div class="row">
+          <div class="form-group col-md-6">
+                <label>Số điện thoại</label>
+                <input type="tel" name="phonep" class="form-control" placeholder="Nhập vào số điện thoại">
+            </div>
+            <div class="form-group col-md-6">
+                <label>Email</label>
+                <input type="email" name="emailp" class="form-control" placeholder="Nhập vào email">
+            </div>
+          </div> 
+          </div>
+
+          <div>
+          <h7 class="m-0 font-weight-bold text-primary">Điểm sinh viên</h7>
            <div class="row">
            <div class="form-group col-md-4">
                 <label>Điểm 1</label>
@@ -78,9 +108,8 @@ include('includes/connect.php');
                 <label>Điểm 3</label>
                 <input type="number" name="diem3" class="form-control" placeholder="Nhập vào điểm 3">
             </div>
-            
         </div>
-
+        </div>
            </div>
             
         <div class="modal-footer">
