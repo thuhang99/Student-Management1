@@ -2,6 +2,7 @@
 session_start();
 include('includes/connect.php');
 
+// thêm mới sinh viên
 
 if(isset($_POST['registerbtn']))
 {
@@ -28,9 +29,6 @@ if(isset($_POST['registerbtn']))
 	$query2 = "INSERT INTO points (id_sv,diem1,diem2,diem3,tbc) VALUES ('$id_sv','$diem1','$diem2','$diem3', '$tbc')";
 	$query_run2 = mysqli_query($connect,$query2);
 
-	// $query_3="SELECT name, code, diem1, diem1, diem2, tbc FROM student INNER JOIN points on student.id = points.id_sv";
-	// $query_run3=mysqli_query($connect,$query3);
-
 	$query3 = "INSERT INTO parents (id_sv,namep,addp,phonep,emailp) VALUES ('$id_sv','$namep','$addp','$phonep', '$emailp')";
 	$query_run3 = mysqli_query($connect,$query3);
 
@@ -48,8 +46,7 @@ if(isset($_POST['registerbtn']))
 }
 
 
-
-
+// sửa thông tin sinh viên
 
 if(isset($_POST['update-btn']))
 {
@@ -61,7 +58,6 @@ if(isset($_POST['update-btn']))
 	$email=$_POST['edit_email'];
 	$id_pos=$_POST['edit_id_pos'];
 
-	//giong ơ trên
 	$query="UPDATE student SET name='$name',code='$code',class='$class',phone='$phone',email='$email',id_pos='$id_pos' WHERE id='$id' ";
 	$query_run=mysqli_query($connect,$query);
 	if($query_run)
@@ -76,9 +72,7 @@ if(isset($_POST['update-btn']))
 	}
 }
 
-
-
-
+//xóa sinh viên
 
 if(isset($_POST['delete_btn']))
 {
@@ -99,7 +93,13 @@ if($query_run)
 		header('Location:student.php');
 	}
 }
+
+
+
 //Lớp--------------------------------------------------------------------
+
+//Thêm mới lớp
+
 	if(isset($_POST['addclass']))
 	{
 	
@@ -125,6 +125,7 @@ if($query_run)
 	}
 	
 
+//Sửa thông tin lớp
 
 	if(isset($_POST['update-class']))
 	{
@@ -150,7 +151,7 @@ if($query_run)
 	}
 
 
-			// Xóa lớp
+// Xóa lớp
 			if(isset($_POST['delete_class']))
 		{
 
@@ -174,7 +175,10 @@ if($query_run)
 
 
 
-//Điểm----------------------------------------------	
+//Điểm----------------------------------------------
+
+//Sửa điểm
+
 if(isset($_POST['update-point']))
 	{
 		
@@ -201,6 +205,8 @@ if(isset($_POST['update-point']))
 
 
 	//Phụ huynh-------------------------------------------------------
+
+	//Sửa phụ huynh
 	if(isset($_POST['update-parent']))
 	{
 		
@@ -210,7 +216,7 @@ if(isset($_POST['update-point']))
 		$phonep=$_POST['edit_phonep'];
 		$emailp=$_POST['edit_emailp'];
 
-		$query="UPDATE parents SET namep='$namep',addp='$addp',phonep='$phonep',email='$emailp' WHERE id='$id' ";
+		$query="UPDATE parents SET namep='$namep',addp='$addp',phonep='$phonep',emailp='$emailp' WHERE id='$id' ";
 		$query_run=mysqli_query($connect,$query);
 		if($query_run)
 		{

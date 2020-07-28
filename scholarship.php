@@ -12,7 +12,7 @@ include('includes/connect.php');
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h7 class="m-0 font-weight-bold text-primary">Học bổng
+    <h7 class="m-0 font-weight-bold text-primary">Sinh viên đạt học bổng
     </h7>
   </div>
 
@@ -33,36 +33,39 @@ include('includes/connect.php');
  ?>
     
 <?php 
-$query="SELECT * FROM point";
-$query_run=mysqli_query($connect,$query);
+$query_3="SELECT student.name,code, points.id, diem1, diem2, diem3, tbc FROM student INNER JOIN points ON student.id = points.id_sv";
+$query_run3=mysqli_query($connect,$query_3);
 
 
  ?>
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <!-- <th> ID </th> -->
             <th>Họ Tên</th>
+            <th>Mã SV</th>
             <th>Điểm 1</>
             <th>Điểm 2</th>
             <th>Điểm 3</th>
             <th>Điểm TB</th>
             <th>Trạng thái</th>
             <th>Sửa</th>
-            <th>Xóa</th>
           </tr>
         </thead>
         <tbody>
           <?php 
-              if(mysqli_num_rows($query_run)>0)
+              if(mysqli_num_rows($query_run3)>0)
               {
-                while($row=mysqli_fetch_assoc($query_run))
+                while($row=mysqli_fetch_assoc($query_run3))
                 {
                   
                   ?>
-                        
+
                       <tr>
-                        <td><?php echo $row['id_sv']; ?></td>
+                     <?php if($row['tbc']>=7)
+                     {
+                      ?> 
+                        <td><?php echo $row['name']; ?></td>
+                        <td><?php echo $row['code']; ?></td>
                         <td><?php echo $row['diem1']; ?></td>
                         <td><?php echo $row['diem2']; ?></td>
                         <td><?php echo $row['diem3']; ?></td>
@@ -71,33 +74,26 @@ $query_run=mysqli_query($connect,$query);
                             <?php
                                 if($row['tbc']>=8)  
                                 {
-                                    //echo "Học bổng loại giỏi";
-                                    echo "Học bổng loại giỏi";
+                                    echo '<a href="#" class="badge badge-success">Học bổng loại giỏi</a>';
                                 }
                                 if($row['tbc']>=7 && $row['tbc']<8 )  
                                 {
-                                    echo "Học bổng loại khá";
-                                }
-                                else
-                                {
-                                    echo ' ';
+                                    echo '<a href="#" class="badge badge-primary">Học bổng loại khá</a>';
                                 }
                             ?>
                         </td>
                         <td>
-                            <form action="edit_class.php" method="post">
+                            <form action="edit_point.php" method="post">
                                 <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>">
-                                <button  type="submit" name="edit_class" class="btn btn-info btn-circle"><i class="fa fa-edit edit"></i></button>
+                                <button  type="submit" name="edit_point" class="btn btn-info btn-circle"><i class="fa fa-edit edit"></i></button>
                             </form>
                         </td>
-                        <td>
-                            <form action="code.php" method="post">
-                              <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
-                              <button onclick="return confirm('Bạn có muốn xóa lớp')" href="code.php?id=<?php echo $row['tenlop'];?>" type="submit" name="delete_class" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button>
-                            </form>
-                        </td>
+                       
                       </tr>
-
+                                          
+                  <?php
+              }           
+           ?>            
                   <?php
                 }
               }
@@ -115,7 +111,7 @@ $query_run=mysqli_query($connect,$query);
 </div>
 
 </div>
-<!-- /.container-fluid -->
+
 
 <?php
 include('includes/scripts.php');

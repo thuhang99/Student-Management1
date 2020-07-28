@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 28, 2020 lúc 07:49 AM
+-- Thời gian đã tạo: Th7 28, 2020 lúc 02:01 PM
 -- Phiên bản máy phục vụ: 10.4.6-MariaDB
 -- Phiên bản PHP: 7.2.21
 
@@ -88,7 +88,8 @@ CREATE TABLE `parents` (
 
 INSERT INTO `parents` (`id`, `id_sv`, `namep`, `addp`, `phonep`, `emailp`) VALUES
 (3, 40, 'Code không bug', 'bug@gmail.com', '43598459', 'bug@gmail.com'),
-(4, 41, 'Nói không với bug', 'localhost', '49584594', 'hetbug@gmail.com');
+(4, 41, 'Nói không với bug', 'localhost', '49584594', 'hetbug@gmail.com'),
+(5, 42, 'Hoàng Văn B', 'Dương Xá, Gia Lâm, Hà Nội', '0354875', 'vana@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -125,7 +126,8 @@ INSERT INTO `points` (`id`, `id_sv`, `diem1`, `diem2`, `diem3`, `tbc`) VALUES
 (14, 38, '6', '8', '9', '7.6666666666667'),
 (15, 39, '7', '9', '4', '6.6666666666667'),
 (16, 40, '4', '8', '3', '5'),
-(17, 41, '3', '1', '10', '4.6666666666667');
+(17, 41, '3', '1', '10', '4.6666666666667'),
+(18, 42, '9', '8', '10', '9');
 
 -- --------------------------------------------------------
 
@@ -152,7 +154,8 @@ INSERT INTO `student` (`id`, `name`, `code`, `class`, `phone`, `email`, `id_pos`
 (34, 'Phạm Thị Test', '61234', 'K63CNTT', '09999999', 'testhihi@gmail.com', 1),
 (35, 'Phạm Thu Hằng', '621128', 'K6CNPM', '0362930759', 'thuhang@gmail.com', 2),
 (36, 'Lê Ngọc Tuyên', '605142', 'K60MMT', '0999999999', 'tuyenle@gmail.com', 3),
-(41, 'Hết lỗi đi', '95845', 'K65ATTT', '94854957', 'hetbug@gmail.com', 0);
+(41, 'Hết lỗi đi', '95845', 'K65ATTT', '94854957', 'hetbug@gmail.com', 0),
+(42, 'Hoàng Văn Tuân', '600000', 'k65CNPM', '035353535', 'tuanhoang@gmail.com', 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -208,19 +211,19 @@ ALTER TABLE `class`
 -- AUTO_INCREMENT cho bảng `parents`
 --
 ALTER TABLE `parents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `points`
 --
 ALTER TABLE `points`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

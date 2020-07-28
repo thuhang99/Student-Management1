@@ -83,7 +83,7 @@
     <div class="bg-white py-2 collapse-inner rounded">
       <a class="collapse-item" href="student.php">Danh sách sinh viên</a>
       <a class="collapse-item" href="add_student.php">Thêm mới sinh viên</a>
-      <a class="collapse-item" href="forgot-password.html">Danh sách cán bộ lớp</a>
+      <a class="collapse-item" href="official.php">Danh sách cán bộ lớp</a>
       
   </div>
 </li>
@@ -106,14 +106,6 @@
     <span>Liên hệ</span></a>
 </li>
 
-<!-- Nav Item - Tables -->
-<!-- <li class="nav-item">
-  <a class="nav-link" href="tables.html">
-    <i class="fas fa-fw fa-table"></i>
-    <span>Tables</span></a>
-</li> -->
-
-<!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">
 
 <!-- Sidebar Toggler (Sidebar) -->

@@ -12,11 +12,7 @@ include('includes/connect.php');
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h7 class="m-0 font-weight-bold text-primary">Thông tin sinh viên
-            <a style="float:right" href="add_student.php">
-              Thêm mới sinh viên
-            </a>
-    </h7>
+    <h7 class="m-0 font-weight-bold text-primary">Danh sách cán bộ lớp</h7>
   </div>
 
   <div class="card-body">
@@ -66,7 +62,10 @@ $query_run=mysqli_query($connect,$query);
                 {
                   
                   ?>
-
+                <?php 
+                    if($row['id_pos']!=0)
+                    {
+                ?>
                       <tr>
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['code']; ?></td>
@@ -87,12 +86,7 @@ $query_run=mysqli_query($connect,$query);
                             if($row['id_pos']==3)
                             {
                               echo '<a  href="#" class="badge badge-primary">Lớp phó</a>';
-                            }
-                            else
-                            {
-                              echo ' ';
-                            }
-                            // echo $row['id_pos'];
+                            }                           
                           ?>
                         </td>
                         <td>
@@ -108,6 +102,10 @@ $query_run=mysqli_query($connect,$query);
                             </form>
                         </td>
                       </tr>
+                     
+                    <?php
+                         }
+                    ?>
                   <?php
                 }
               }

@@ -53,11 +53,12 @@ include('includes/navbar.php');
               <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Tổng số chuyên ngành</div>
               <div class="h5 mb-0 font-weight-bold text-gray-800">
               <?php 
-                      require 'includes/connect.php';
-                      $query="SELECT id FROM class ORDER BY id";
-                      $query_run=mysqli_query($connect,$query);
-                      $row=mysqli_num_rows($query_run);
-                      echo '<h3>'.$row.'</h3>';
+                      // require 'includes/connect.php';
+                      // $query="SELECT id FROM class ORDER BY id";
+                      // $query_run=mysqli_query($connect,$query);
+                      // $row=mysqli_num_rows($query_run);
+                      // echo '<h3>'.$row.'</h3>';
+                      echo '<h3>5</h3>';
                    ?>
               </div>
             </div>
@@ -114,7 +115,7 @@ include('includes/navbar.php');
               <div class="h5 mb-0 font-weight-bold text-gray-800">
               <?php 
                       require 'includes/connect.php';
-                      $query="SELECT id FROM point WHERE tbc>7";
+                      $query="SELECT id FROM points WHERE tbc>=7";
                       $query_run=mysqli_query($connect,$query);
                       $row=mysqli_num_rows($query_run);
                       echo '<h3>'.$row.'</h3>';

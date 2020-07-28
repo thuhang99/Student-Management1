@@ -35,8 +35,8 @@ include('includes/connect.php');
 <?php 
 // $query="SELECT * FROM point";
 // $query_run=mysqli_query($connect,$query);
-$query_3="SELECT student.name,code, parents.id, namep, addp, phonep, emailp FROM student INNER JOIN parents ON student.id = parents.id_sv";
-$query_run3=mysqli_query($connect,$query_3);
+$query="SELECT student.name,code, parents.id, namep, addp, phonep, emailp FROM student INNER JOIN parents ON student.id = parents.id_sv";
+$query_run=mysqli_query($connect,$query);
 
 
  ?>
@@ -55,9 +55,9 @@ $query_run3=mysqli_query($connect,$query_3);
         </thead>
         <tbody>
           <?php 
-              if(mysqli_num_rows($query_run3)>0)
+              if(mysqli_num_rows($query_run)>0)
               {
-                while($row=mysqli_fetch_assoc($query_run3))
+                while($row=mysqli_fetch_assoc($query_run))
                 {
                   
                   ?>

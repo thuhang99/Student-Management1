@@ -91,7 +91,7 @@ include('includes/connect.php');
                 <input type="email" name="emailp" class="form-control" placeholder="Nhập vào email">
             </div>
           </div> 
-          </div>
+          
 
           <div>
           <h7 class="m-0 font-weight-bold text-primary">Điểm sinh viên</h7>
@@ -111,7 +111,7 @@ include('includes/connect.php');
         </div>
         </div>
            </div>
-            
+           </div>   
         <div class="modal-footer">
             <button type="submit" name="registerbtn" class="btn btn-primary">Lưu</button>
             <button type="reset" class="btn btn-secondary" data-dismiss="modal">Nhập lại</button>
