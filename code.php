@@ -81,6 +81,14 @@ if(isset($_POST['delete_btn']))
 	$query="DELETE FROM student WHERE id='$id'";
 	$query_run=mysqli_query($connect,$query);
 
+	if($query)
+	{
+		$query2="DELETE FROM points WHERE id_sv='$id'";
+		$query_run2=mysqli_query($connect,$query2);
+		$query3="DELETE FROM parents WHERE id_sv='$id'";
+		$query_run3=mysqli_query($connect,$query3);
+	}
+
 if($query_run)
 	{
 		$_SESSION['success'].="Xóa sinh viên thành công";

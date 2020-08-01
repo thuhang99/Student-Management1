@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 28, 2020 lúc 02:01 PM
+-- Thời gian đã tạo: Th8 01, 2020 lúc 03:47 PM
 -- Phiên bản máy phục vụ: 10.4.6-MariaDB
 -- Phiên bản PHP: 7.2.21
 
@@ -87,9 +87,7 @@ CREATE TABLE `parents` (
 --
 
 INSERT INTO `parents` (`id`, `id_sv`, `namep`, `addp`, `phonep`, `emailp`) VALUES
-(3, 40, 'Code không bug', 'bug@gmail.com', '43598459', 'bug@gmail.com'),
-(4, 41, 'Nói không với bug', 'localhost', '49584594', 'hetbug@gmail.com'),
-(5, 42, 'Hoàng Văn B', 'Dương Xá, Gia Lâm, Hà Nội', '0354875', 'vana@gmail.com');
+(9, 46, 'Lê Văn Suốt', 'Chương Mỹ, Hà Nội', '0123456789', 'tuyennhot@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -111,23 +109,7 @@ CREATE TABLE `points` (
 --
 
 INSERT INTO `points` (`id`, `id_sv`, `diem1`, `diem2`, `diem3`, `tbc`) VALUES
-(1, 0, '9', '9', '9', '9'),
-(2, 0, '5', '6', '7', '6'),
-(3, 27, '7', '3', '9', '6.3333333333333'),
-(4, 28, '1', '3', '5', '3'),
-(5, 29, '3', '6', '9', '6'),
-(6, 30, '8', '9', '7', '8'),
-(7, 31, '6', '7', '9', '7.3333333333333'),
-(8, 32, '9', '9', '9', '9'),
-(10, 34, '2', '5', '3', '3.3333333333333'),
-(11, 35, '9', '10', '9', '9.3333333333333'),
-(12, 36, '6', '8', '9', '7.6666666666667'),
-(13, 37, '6', '9', '9', '8'),
-(14, 38, '6', '8', '9', '7.6666666666667'),
-(15, 39, '7', '9', '4', '6.6666666666667'),
-(16, 40, '4', '8', '3', '5'),
-(17, 41, '3', '1', '10', '4.6666666666667'),
-(18, 42, '9', '8', '10', '9');
+(22, 46, '8', '7', '6', '7');
 
 -- --------------------------------------------------------
 
@@ -150,12 +132,7 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`id`, `name`, `code`, `class`, `phone`, `email`, `id_pos`) VALUES
-(31, 'Phạm Minh Đức', '621188', 'K58MMT', '465757', 'duc@gmail.com', 2),
-(34, 'Phạm Thị Test', '61234', 'K63CNTT', '09999999', 'testhihi@gmail.com', 1),
-(35, 'Phạm Thu Hằng', '621128', 'K6CNPM', '0362930759', 'thuhang@gmail.com', 2),
-(36, 'Lê Ngọc Tuyên', '605142', 'K60MMT', '0999999999', 'tuyenle@gmail.com', 3),
-(41, 'Hết lỗi đi', '95845', 'K65ATTT', '94854957', 'hetbug@gmail.com', 0),
-(42, 'Hoàng Văn Tuân', '600000', 'k65CNPM', '035353535', 'tuanhoang@gmail.com', 1);
+(46, 'Lê Ngọc Nhớt', '601034', 'K62CNTT', '0123456789', 'tuyennhot@gmail.com', 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -211,19 +188,19 @@ ALTER TABLE `class`
 -- AUTO_INCREMENT cho bảng `parents`
 --
 ALTER TABLE `parents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `points`
 --
 ALTER TABLE `points`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT cho bảng `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

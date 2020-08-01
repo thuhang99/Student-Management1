@@ -41,6 +41,15 @@ $query_run=mysqli_query($connect,$query);
 
 
  ?>
+                  <div class="input-group col-md-4 ">
+                  <input type="text" id="myInput" class="form-control bg-light border-0 small" placeholder="Tìm kiếm sinh viên" aria-label="Search" aria-describedby="basic-addon2" name="hoten" onkeyup="myFunction()">
+                  <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" name="submit">
+                      <i class="fas fa-search fa-sm"></i>
+                    </button>
+                    </div>
+                  </div>
+                  <br>
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
@@ -126,7 +135,26 @@ $query_run=mysqli_query($connect,$query);
 
 </div>
 <!-- /.container-fluid -->
-
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("dataTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
 <?php
 include('includes/scripts.php');
 include('includes/footer.php');
