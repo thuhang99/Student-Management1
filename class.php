@@ -38,9 +38,7 @@ include('includes/connect.php');
 <?php 
 $query="SELECT * FROM class";
 $query_run=mysqli_query($connect,$query);
-
-
- ?>
+?>
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>

@@ -64,10 +64,10 @@ if (isset($_SESSION['id'])) {
                         }
                          ?>
                     <div class="form-group">
-                    <input type="email" name="email" class="form-control form-control-user" placeholder="Nhập vào email">
+                    <input type="email" name="email" class="form-control form-control-user" placeholder="Nhập vào email" required>
                     </div>
                     <div class="form-group">
-                    <input type="password" name="password" class="form-control form-control-user" placeholder="Nhập vào password">
+                    <input type="password" name="password" class="form-control form-control-user" placeholder="Nhập vào password" required>
                     </div>
             
                     <button type="submit" name="login_btn" class="btn btn-primary btn-user btn-block"> Đăng nhập </button>

@@ -36,16 +36,18 @@ include('includes/connect.php');
  ?>
     
 <?php 
-$query="SELECT * FROM student";
+// $query="SELECT * FROM student";
+// $query_run=mysqli_query($connect,$query);
+$query="SELECT class.tenlop,student.id, name, code,class , phone,email,id_pos FROM student INNER JOIN class ON class.id = student.class";
 $query_run=mysqli_query($connect,$query);
 
-
  ?>
+                  <br>
                   <div class="input-group col-md-4 ">
-                  <input type="text" id="myInput" class="form-control bg-light border-0 small" placeholder="Tìm kiếm sinh viên" aria-label="Search" aria-describedby="basic-addon2" name="hoten" onkeyup="myFunction()">
-                  <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" name="submit">
-                      <i class="fas fa-search fa-sm"></i>
+                    <input type="text" id="myInput" class="form-control bg-light border-0 small" placeholder="Tìm kiếm sinh viên" aria-label="Search" aria-describedby="basic-addon2" name="hoten" onkeyup="myFunction()">
+                    <div div class="input-group-append">
+                      <button class="btn btn-primary" type="button" name="submit">
+                        <i class="fas fa-search fa-sm"></i>
                     </button>
                     </div>
                   </div>
@@ -66,20 +68,15 @@ $query_run=mysqli_query($connect,$query);
         </thead>
         <tbody>
           <?php 
-
-                
-
               if(mysqli_num_rows($query_run)>0)
               {
                 while($row=mysqli_fetch_assoc($query_run))
-                {
-                  
+                {                 
                   ?>
-
                       <tr>
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['code']; ?></td>
-                        <td><?php echo $row['class']; ?></td>
+                        <td><?php echo $row['tenlop']; ?></td>
                         <td><?php echo $row['phone']; ?></td>
                         <td><?php echo $row['email']; ?></td>
                         <td>
@@ -101,7 +98,6 @@ $query_run=mysqli_query($connect,$query);
                             {
                               echo ' ';
                             }
-                            // echo $row['id_pos'];
                           ?>
                         </td>
                         <td>
@@ -134,7 +130,6 @@ $query_run=mysqli_query($connect,$query);
 </div>
 
 </div>
-<!-- /.container-fluid -->
 <script>
 function myFunction() {
   var input, filter, table, tr, td, i, txtValue;

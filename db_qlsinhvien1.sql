@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 01, 2020 lúc 03:47 PM
+-- Thời gian đã tạo: Th8 02, 2020 lúc 04:39 PM
 -- Phiên bản máy phục vụ: 10.4.6-MariaDB
 -- Phiên bản PHP: 7.2.21
 
@@ -87,7 +87,9 @@ CREATE TABLE `parents` (
 --
 
 INSERT INTO `parents` (`id`, `id_sv`, `namep`, `addp`, `phonep`, `emailp`) VALUES
-(9, 46, 'Lê Văn Suốt', 'Chương Mỹ, Hà Nội', '0123456789', 'tuyennhot@gmail.com');
+(14, 51, 'Lê Ngọc B', 'Hà Nội', '0999999999', ''),
+(15, 52, 'Nguyễn Thị Test', 'Hà Nội', '0999999999', ''),
+(16, 53, 'Phạm Văn Vinh', 'Đông Anh, Hà Nội', '0989199465', '');
 
 -- --------------------------------------------------------
 
@@ -109,7 +111,9 @@ CREATE TABLE `points` (
 --
 
 INSERT INTO `points` (`id`, `id_sv`, `diem1`, `diem2`, `diem3`, `tbc`) VALUES
-(22, 46, '8', '7', '6', '7');
+(27, 51, '8', '3', '4', '5'),
+(28, 52, '5', '3', '1', '3'),
+(29, 53, '9', '10', '9', '9.3333333333333');
 
 -- --------------------------------------------------------
 
@@ -132,7 +136,9 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`id`, `name`, `code`, `class`, `phone`, `email`, `id_pos`) VALUES
-(46, 'Lê Ngọc Nhớt', '601034', 'K62CNTT', '0123456789', 'tuyennhot@gmail.com', 0);
+(51, 'Lê Ngọc Nhớt', '651111', '13', '0999999999', 'tuyennhot@gmail.com', 0),
+(52, 'Nguyễn Thị Test', '620009', '8', '0999999999', 'test@gmail.com', 1),
+(53, 'Phạm Thu Hằng', '621128', '1', '0362930759', 'thuhang@gmail.com', 2);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -188,19 +194,19 @@ ALTER TABLE `class`
 -- AUTO_INCREMENT cho bảng `parents`
 --
 ALTER TABLE `parents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `points`
 --
 ALTER TABLE `points`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT cho bảng `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

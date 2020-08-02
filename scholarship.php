@@ -69,7 +69,7 @@ $query_run3=mysqli_query($connect,$query_3);
                         <td><?php echo $row['diem1']; ?></td>
                         <td><?php echo $row['diem2']; ?></td>
                         <td><?php echo $row['diem3']; ?></td>
-                        <td><?php echo $row['tbc']; ?></td>
+                        <td><?php echo round($row['tbc'],1); ?></td>
                         <td>
                             <?php
                                 if($row['tbc']>=8)  
