@@ -3,10 +3,16 @@ session_start();
 include('includes/header.php'); 
 include('includes/navbar.php'); 
 include('includes/connect.php');
+$query="SELECT * FROM class";
+$query_run=mysqli_query($connect,$query);
+$results_array = array();
+while($row = mysqli_fetch_assoc($query_run)) {
+    array_push($results_array, $row);
+}
 ?>
 <div class="container-fluid">
 
-<!-- DataTales Example -->
+<!-- DataTales Example --->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h7 class="m-0 font-weight-bold text-primary">Chỉnh sửa thông tin sinh viên 
@@ -39,7 +45,12 @@ include('includes/connect.php');
                     </div>
                     <div class="form-group">
                         <label>Lớp</label>
-                        <input type="text" name="edit_class" class="form-control" placeholder="Nhập vào lớp" value="<?php echo $row['class']; ?>">
+                        <select name="edit_class" class=" form-control">
+                          <?php foreach($results_array as $key){ ?>
+                          <option value="<?php echo $key['id']; ?>"><?php echo $key['tenlop'] ?> </option>
+                          <!-- <input type="text" name="class" class="form-control" placeholder="Nhập vào lớp" required> -->
+                          <?php } ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Điện thoại</label>

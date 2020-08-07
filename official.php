@@ -32,7 +32,7 @@ include('includes/connect.php');
  ?>
     
 <?php 
-$query="SELECT * FROM student";
+$query="SELECT class.tenlop,student.id, name, code,class , phone,email,id_pos FROM student INNER JOIN class ON class.id = student.class";
 $query_run=mysqli_query($connect,$query);
 
 
@@ -69,7 +69,7 @@ $query_run=mysqli_query($connect,$query);
                       <tr>
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['code']; ?></td>
-                        <td><?php echo $row['class']; ?></td>
+                        <td><?php echo $row['tenlop']; ?></td>
                         <td><?php echo $row['phone']; ?></td>
                         <td><?php echo $row['email']; ?></td>
                         <td>
