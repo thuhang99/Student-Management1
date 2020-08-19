@@ -4,12 +4,7 @@ include('includes/header.php');
 include('includes/navbar.php'); 
 include('includes/connect.php');
 ?>
-
-
-
 <div class="container-fluid">
-
-<!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h7 class="m-0 font-weight-bold text-primary">Sinh viên đạt học bổng
@@ -35,12 +30,11 @@ include('includes/connect.php');
 <?php 
 $query_3="SELECT student.name,code, points.id, diem1, diem2, diem3, tbc FROM student INNER JOIN points ON student.id = points.id_sv";
 $query_run3=mysqli_query($connect,$query_3);
-
-
  ?>
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
+            <th>STT</th>
             <th>Họ Tên</th>
             <th>Mã SV</th>
             <th>Điểm 1</>
@@ -53,6 +47,7 @@ $query_run3=mysqli_query($connect,$query_3);
         </thead>
         <tbody>
           <?php 
+              $no = 1;
               if(mysqli_num_rows($query_run3)>0)
               {
                 while($row=mysqli_fetch_assoc($query_run3))
@@ -64,6 +59,7 @@ $query_run3=mysqli_query($connect,$query_3);
                      <?php if($row['tbc']>=7)
                      {
                       ?> 
+                        <td><?php echo $no; ?></td>
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['code']; ?></td>
                         <td><?php echo $row['diem1']; ?></td>
@@ -92,6 +88,7 @@ $query_run3=mysqli_query($connect,$query_3);
                       </tr>
                                           
                   <?php
+                  $no++;
               }           
            ?>            
                   <?php

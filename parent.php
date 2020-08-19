@@ -4,18 +4,12 @@ include('includes/header.php');
 include('includes/navbar.php'); 
 include('includes/connect.php');
 ?>
-
-
-
 <div class="container-fluid">
-
-<!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h7 class="m-0 font-weight-bold text-primary">Bảng điểm
     </h7>
   </div>
-
   <div class="card-body">
   <div class="table-responsive">
 <?php 
@@ -33,8 +27,6 @@ include('includes/connect.php');
  ?>
     
 <?php 
-// $query="SELECT * FROM point";
-// $query_run=mysqli_query($connect,$query);
 $query="SELECT student.name,code, parents.id, namep, addp, phonep, emailp FROM student INNER JOIN parents ON student.id = parents.id_sv";
 $query_run=mysqli_query($connect,$query);
 
@@ -43,7 +35,7 @@ $query_run=mysqli_query($connect,$query);
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <!-- <th> ID </th> -->
+            <th>STT</th>
             <th>Họ Tên</th>
             <th>Mã SV</th>
             <th>Tên phụ huynh</>
@@ -55,6 +47,7 @@ $query_run=mysqli_query($connect,$query);
         </thead>
         <tbody>
           <?php 
+              $no = 1;
               if(mysqli_num_rows($query_run)>0)
               {
                 while($row=mysqli_fetch_assoc($query_run))
@@ -63,6 +56,7 @@ $query_run=mysqli_query($connect,$query);
                   ?>
 
                       <tr>
+                        <td><?php echo $no; ?></td>
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['code']; ?></td>
                         <td><?php echo $row['namep']; ?></td>
@@ -80,6 +74,7 @@ $query_run=mysqli_query($connect,$query);
                       </tr>
 
                   <?php
+                   $no++;
                 }
               }
               else
@@ -100,5 +95,4 @@ $query_run=mysqli_query($connect,$query);
 
 <?php
 include('includes/scripts.php');
-include('includes/footer.php');
 ?>

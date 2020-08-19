@@ -55,7 +55,7 @@ $query_run=mysqli_query($connect,$query);
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <!-- <th> ID </th> -->
+            <th>STT</th>
             <th>Tên</th>
             <th>Mã SV</th>
             <th>Lớp</th>
@@ -68,12 +68,14 @@ $query_run=mysqli_query($connect,$query);
         </thead>
         <tbody>
           <?php 
+              $no = 1;
               if(mysqli_num_rows($query_run)>0)
               {
                 while($row=mysqli_fetch_assoc($query_run))
                 {                 
                   ?>
                       <tr>
+                        <td><?php echo $no; ?></td>
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['code']; ?></td>
                         <td><?php echo $row['tenlop']; ?></td>
@@ -114,6 +116,7 @@ $query_run=mysqli_query($connect,$query);
                         </td>
                       </tr>
                   <?php
+                  $no++;
                 }
               }
               else
@@ -152,5 +155,4 @@ function myFunction() {
 </script>
 <?php
 include('includes/scripts.php');
-include('includes/footer.php');
 ?>

@@ -1,26 +1,32 @@
 <?php
-session_start();
-include('includes/header.php'); 
-include('includes/navbar.php'); 
-include('includes/connect.php');
+  session_start();
+  include('includes/header.php'); 
+  include('includes/navbar.php'); 
+  include('includes/connect.php');
+
+$sotin1trang = 5;
+
+if(isset($_GET["trang"]))
+{
+    $trang = $_GET["trang"];
+}
+else
+{
+    $trang = 1;
+}
 ?>
 
-
-
 <div class="container-fluid">
-
-<!-- DataTales Example -->
-<div class="card shadow mb-4">
-  <div class="card-header py-3">
-    <h7 class="m-0 font-weight-bold text-primary">Thông tin các lớp
-            <a style="float:right" href="add_class.php">
-              Thêm mới lớp
-            </a>
-    </h7>
-  </div>
-
-  <div class="card-body">
-  <div class="table-responsive">
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h7 class="m-0 font-weight-bold text-primary">Thông tin các lớp
+              <a style="float:right" href="add_class.php">
+                Thêm mới lớp
+              </a>
+      </h7>
+    </div> 
+<div class="card-body">
+<div class="table-responsive">
 <?php 
           
           if(isset($_SESSION['success'])&& $_SESSION['success'] !='')
@@ -34,15 +40,10 @@ include('includes/connect.php');
             unset($_SESSION['status']);
           }
  ?>
-    
-<?php 
-$query="SELECT * FROM class";
-$query_run=mysqli_query($connect,$query);
-?>
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <!-- <th> ID </th> -->
+            <th>STT</th>
             <th>Tên Lớp</th>
             <th>Chuyên ngành</th>
             <th>Giáo viên chủ nhiệm</th>
@@ -52,35 +53,39 @@ $query_run=mysqli_query($connect,$query);
         </thead>
         <tbody>
           <?php 
-              if(mysqli_num_rows($query_run)>0)
+             $no = 1;
+             $from = ($trang - 1) * $sotin1trang;
+             $qr = "SELECT * FROM class LIMIT $from, $sotin1trang";
+             $query_run1=mysqli_query($connect,$qr);
+
+              if(mysqli_num_rows($query_run1)>0)
               {
-                while($row=mysqli_fetch_assoc($query_run))
+                
+                while($row=mysqli_fetch_assoc($query_run1))
                 {
                   
                   ?>
-
-                      <tr>
+                        <td><?php echo $no; ?></td>
                         <td><?php echo $row['tenlop']; ?></td>
                         <td>
                           <?php
-                         //echo $row['id_cn'];
-                         if($row['id_cn']==1)
+                         if($row['id_cn'] == 1)
                          {
                            echo "Công nghệ phần mềm";
                          }
-                         if($row['id_cn']==2)
+                         if($row['id_cn'] == 2)
                          {
                            echo "Công nghệ thông tin";
                          }
-                         if($row['id_cn']==3)
+                         if($row['id_cn' ]== 3)
                          {
                            echo "Hệ thống thông tin";
                          }
-                        if($row['id_cn']==4)
+                        if($row['id_cn'] == 4)
                          {
                            echo "An toàn thông tin";
                          }
-                         if($row['id_cn']==5)
+                         if($row['id_cn'] == 5)
                          {
                            echo "Mạng máy tính và truyền thông số";
                          }
@@ -105,8 +110,11 @@ $query_run=mysqli_query($connect,$query);
                       </tr>
 
                   <?php
+                  $no++;
                 }
+                
               }
+              
               else
               {
                 echo "Not found";
@@ -115,15 +123,30 @@ $query_run=mysqli_query($connect,$query);
         
         </tbody>
       </table>
+        <div class="col-md-6">
+        <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+        <?php
+                      $x = "SELECT id FROM class";
 
+                      $query_run2=mysqli_query($connect,$x);
+
+                      $tongsotin = mysqli_num_rows($query_run2);
+
+                      $sotrang = ceil($tongsotin/$sotin1trang);
+
+                      for($i = 1 ; $i<=$sotrang; $i++)
+                      {
+                  
+                        echo "<a href='class.php?trang=$i'>Trang $i  </a>";
+
+                      }
+        ?>
+        </div>
+        </div>
     </div>
   </div>
 </div>
-
 </div>
-<!-- /.container-fluid -->
-
 <?php
-include('includes/scripts.php');
-include('includes/footer.php');
+  include('includes/scripts.php');
 ?>

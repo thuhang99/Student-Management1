@@ -4,16 +4,10 @@ include('includes/header.php');
 include('includes/navbar.php'); 
 include('includes/connect.php');
 ?>
-
-
-
 <div class="container-fluid">
-
-<!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h7 class="m-0 font-weight-bold text-primary">Bảng điểm
-    </h7>
+    <h7 class="m-0 font-weight-bold text-primary">Bảng điểm</h7>
   </div>
 
   <div class="card-body">
@@ -33,8 +27,6 @@ include('includes/connect.php');
  ?>
     
 <?php 
-// $query="SELECT * FROM point";
-// $query_run=mysqli_query($connect,$query);
 $query_3="SELECT student.name,code, points.id, diem1, diem2, diem3, tbc FROM student INNER JOIN points ON student.id = points.id_sv";
 $query_run3=mysqli_query($connect,$query_3);
 
@@ -43,7 +35,7 @@ $query_run3=mysqli_query($connect,$query_3);
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <!-- <th> ID </th> -->
+            <th>STT</th>
             <th>Họ Tên</th>
             <th>Mã SV</th>
             <th>Điểm 1</>
@@ -56,14 +48,15 @@ $query_run3=mysqli_query($connect,$query_3);
         </thead>
         <tbody>
           <?php 
+          $no = 1;
               if(mysqli_num_rows($query_run3)>0)
               {
                 while($row=mysqli_fetch_assoc($query_run3))
                 {
                   
                   ?>
-
                       <tr>
+                        <td><?php echo $no; ?></td>
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['code']; ?></td>
                         <td><?php echo $row['diem1']; ?></td>
@@ -74,12 +67,15 @@ $query_run3=mysqli_query($connect,$query_3);
                             <?php
                                 if($row['tbc']>=8)  
                                 {
-                                    //echo "Học bổng loại giỏi";
                                     echo '<span class="badge badge-success">Học bổng loại giỏi</span>';
                                 }
                                 if($row['tbc']>=7 && $row['tbc']<8 )  
                                 {
                                     echo '<span class="badge badge-primary">Học bổng loại khá</span>';
+                                }
+                                if($row['tbc']<4)
+                                {
+                                  echo '<span class="badge badge-danger">Học lại</span>';
                                 }
                                 else
                                 {
@@ -92,11 +88,10 @@ $query_run3=mysqli_query($connect,$query_3);
                                 <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>">
                                 <button  type="submit" name="edit_point" class="btn btn-info btn-circle"><i class="fa fa-edit edit"></i></button>
                             </form>
-                        </td>
-                       
+                        </td>                       
                       </tr>
-
                   <?php
+                  $no++;
                 }
               }
               else

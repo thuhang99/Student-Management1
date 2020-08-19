@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 07, 2020 lúc 04:48 AM
--- Phiên bản máy phục vụ: 10.4.6-MariaDB
--- Phiên bản PHP: 7.2.21
+-- Thời gian đã tạo: Th8 19, 2020 lúc 05:20 PM
+-- Phiên bản máy phục vụ: 10.4.13-MariaDB
+-- Phiên bản PHP: 7.3.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -65,7 +64,8 @@ INSERT INTO `class` (`id`, `tenlop`, `id_cn`, `gvcn`) VALUES
 (4, 'K63ATTT', 4, 'Phạm Thu Hằng'),
 (8, 'K63HTTT', 5, 'Lê Ngọc Tuyên'),
 (13, 'K65ATTT', 4, 'Nguyễn Văn B'),
-(14, 'K64CNPMP', 1, 'Phạm Thị A');
+(14, 'K64CNPMP', 1, 'Phạm Thị A'),
+(15, 'K65CNPM', 1, 'Phạm Văn B');
 
 -- --------------------------------------------------------
 
@@ -97,7 +97,7 @@ INSERT INTO `parents` (`id`, `id_sv`, `namep`, `addp`, `phonep`, `emailp`) VALUE
 (21, 58, 'Trần Văn Bê', 'Hà Nam', '0123456789', ''),
 (22, 59, 'Nguyễn Văn Ba', 'Phú Thọ', '0123456789', 'vanba@gmail.com'),
 (23, 60, 'Phạm Thị Thỏ', 'Hà Nội', '0123456789', 'thoxinh@gmail.com'),
-(24, 61, 'Phạm Văn Vinh', 'Đông Anh, Hà Nội', '0989199465', 'phamvinh@gmail.com');
+(24, 61, 'Phạm Văn Vinh', 'Dục Tú, Đông Anh, Hà Nội', '0989199465', 'phamvinh@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -124,11 +124,11 @@ INSERT INTO `points` (`id`, `id_sv`, `diem1`, `diem2`, `diem3`, `tbc`) VALUES
 (29, 53, '9', '10', '9', '9.3333333333333'),
 (30, 54, '4', '6', '3', '4.3333333333333'),
 (31, 55, '6', '7', '8', '7'),
-(32, 56, '5', '8', '8', '7'),
-(33, 57, '4', '2', '9', '5'),
+(32, 56, '5', '5', '6', '5.3333333333333'),
+(33, 57, '4', '2', '1', '2.3333333333333'),
 (34, 58, '7', '9', '7', '7.6666666666667'),
-(35, 59, '6', '8', '9', '7.6666666666667'),
-(36, 60, '7', '3', '8', '6'),
+(35, 59, '6', '8', '4', '6'),
+(36, 60, '7', '3', '1', '3.6666666666667'),
 (37, 61, '9', '10', '9', '9.3333333333333');
 
 -- --------------------------------------------------------
@@ -209,25 +209,25 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT cho bảng `class`
 --
 ALTER TABLE `class`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `parents`
 --
 ALTER TABLE `parents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT cho bảng `points`
 --
 ALTER TABLE `points`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT cho bảng `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
